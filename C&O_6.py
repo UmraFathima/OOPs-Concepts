@@ -9,7 +9,7 @@ class Atm():
             self.__pin=newpin
             print(self.__pin)
 # print(self.__pin)
-
+# nothing in python is truly private
 sbi=Atm()
 sbi.get_Pin()
 sbi.set_Pin("1234")
