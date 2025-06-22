@@ -96,3 +96,9 @@ class Child(parent):
 son1=Child(100,10)
 print(son1.get_num()) # here we can get the private var of parent class
 # here the main thig to say is wn we have child cons parent cons wont be triggered 
+
+
+
+# *****************Super key********************
+
+class Parent()
