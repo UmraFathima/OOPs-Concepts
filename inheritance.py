@@ -1,0 +1,98 @@
+# few examples of inheritance
+# child cannot inherit private variable of parent class
+# we can inherit contructor as well
+
+# ****************example of simple inheritance***********************
+class parent:
+    def login(self):
+        print("login")
+    def reg(self):
+        print("Reg")
+class Child(parent): #here we say class child inherits the parent clsaa
+    def enroll(self):
+        print("enroll")
+ab=Child()
+ab.login()
+ab.enroll()
+
+# ***********inheriting the constructor******************
+class parent:
+    def __init__(self,name):
+        self.name=name 
+    def login(self):
+        print("login")
+    def reg(self):
+        print("Reg")
+class Child(parent): #here we say class child inherits the parent clsaa
+    def enroll(self):
+        print("enroll")
+abc2=Child("chang") # here we are passing a value of contrctor to the object of child class but child does not have constructor
+# but child inherit parent class and patrent have contructor so the value of name will be in parents class constructor
+print(abc2.name)
+
+########################inheriting private variables#####################################################################
+
+class parent:
+    def __init__(self,name):
+        self.__name=name #if we make private var in parent class the child cannot inherit it
+    def login(self):
+        print("login")
+    def reg(self):
+        print("Reg")
+class Child(parent): #here we say class child inherits the parent clsaa
+    def enroll(self):
+        print("enroll")
+abc=Child("chang")
+print(abc.__name) #here it gives error as we cannot inherit it frm parent class
+
+####################################polymorphism --> method overriding --->"class the method of its own class"#########################################################
+
+class parent:
+    def login(self):
+        print("login")
+    def reg(self):
+        print("Reg")
+    def same(self):
+        print("This is Parent class ")
+class Child(parent): #here we say class child inherits the parent clsaa
+    def enroll(self):
+        print("enroll")
+    def same(self):
+        print("This is Child class ")
+
+
+abc1=Child()
+abc1.same() # as parent and child class has same methids it calss its own class mthod i.e child not the parent so o/p will be this is child class
+
+
+# I************showing whn constructor is triggered********
+
+class parent:
+    def __init__(self,num):
+        self.__num=num # here evn though its private we can get it by get method as get method is not private
+    def get_num(self):
+        return self.__num 
+class Child(parent):
+    def show(self):
+        print("This is teh child class")
+son=Child(100)
+print(son.get_num()) # here we can get the provate var of parent class
+son.show()
+# also this example shows that the as oly wen the parent class constructor is triggered thn oly we can derive the instance var from it
+# remeber it for nxt example
+
+
+# exapmle 2
+class Parent:
+    def __init__(self,num):
+        self.__num=num # here evn though its private we can get it by get method as get method is not private
+    def get_num(self):
+        return self.__num 
+class Child(parent):
+    def __init__(self,val,num) # here there is a const in the child class as well so now the values will be storedin child class get
+        self.__val=val
+    def get_val(self):
+        return self.__val
+son1=Child(100,10)
+print(son1.get_num()) # here we can get the private var of parent class
+# here the main thig to say is wn we have child cons parent cons wont be triggered 
