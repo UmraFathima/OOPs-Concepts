@@ -20,7 +20,7 @@ class Atm:
 
     @staticmethod      #to access this we dont require object we can acces by its class name like Atm.get_counter
     def get_counter():
-        return Atm.__counter
+        return Atm.__counterf
     
     @staticmethod
     def set_counter(new):
