@@ -101,4 +101,31 @@ print(son1.get_num()) # here we can get the private var of parent class
 
 # *****************Super key********************
 
-class Parent()
+class Parent:
+    def __init__(self,name,price):
+        self.name=name
+        self.price=price
+    def buy(self):
+        print("Parent")
+class Child(Parent):
+    def buy(self):
+        print("Child")
+        super().buy()   #it is used to called buy class from parent class
+cd=Child("Suzuki",67770)
+cd.buy()  # as this calls buy of child class
+# super key word wont work outside a classs
+
+
+###********************************YYYYYYYYYY**************#####
+class A:
+    def __init__(self,var1):
+        self.var1=100
+    def display(self,var1):
+        print("A"self.var1)
+class B(A):
+    def display2(self,var1):
+        print("B",self.var1)
+obj=B(200)
+obj.display(200)
+
+    
