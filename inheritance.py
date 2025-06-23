@@ -113,19 +113,66 @@ class Child(Parent):
         super().buy()   #it is used to called buy class from parent class
 cd=Child("Suzuki",67770)
 cd.buy()  # as this calls buy of child class
-# super key word wont work outside a classs
+# super key word wont work outside a classs & o/p will be both
 
 
 ###********************************YYYYYYYYYY**************#####
 class A:
     def __init__(self,var1):
         self.var1=100
-    def display(self,var1):
+    def display(self,var1): #as this display func is printing self.var1 val...but 200 is stored in self.var1
+
         print("A"self.var1)
 class B(A):
     def display2(self,var1):
         print("B",self.var1)
 obj=B(200)
-obj.display(200)
+obj.display(200) #evn tho we are passing 200 but the o/p will be 100 as this display func is printing self.var1 val...but 200 is stored in self.var1
 
-    
+
+class A:
+    def __init__(self,price,brand,camera):
+        self.price=price
+        self.brand=brand
+        self.camera=camera
+class B(A):
+    def __init__(self,price,brand,camera,os,ram):
+        super().__init__(price,brand,camera) #we can call const of parent class using super. 
+        #here the os and ram val is saved in child class. rest the vals are passed on to the parent class constt
+        self.os=os
+        self.ram=ram
+cs=B(2000,"samsung","32mgp","Android","23g")
+print(cs.os)
+print(cs.ram)
+
+
+
+class A:
+    def __init__(self,num):
+        self.num=num
+    def get_num(self):
+        return self.num
+class B(A):
+    def __init__(self,num,val):
+        super().__init__(num)
+        self.val=val
+    def get_val(self):
+        return self.val
+de=B(100,200)
+print(de.get_num())
+print(de.get_val())
+
+
+
+class A:
+    def __init__(self):
+        self.num=100
+class B(A):
+    def __init__(self):
+        super().__init__()
+        self.var=200
+    def show(self):
+        print(self.num)
+        print(self.var)
+re=B()
+re.show()
