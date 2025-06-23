@@ -169,10 +169,28 @@ class A:
         self.num=100
 class B(A):
     def __init__(self):
-        super().__init__()
+        super().__init__() #here the parent constr is triggered so the .num val is init to 100 oly then
         self.var=200
     def show(self):
-        print(self.num)
+        print(self.num) #here we r able to fetch tht val
         print(self.var)
 re=B()
 re.show()
+
+
+class A:
+    def __init__(self):
+        self.num=100
+    def show(self):
+        print(self.num)
+class B:
+    def __init__(self):
+        super().__init__()
+        self.var=200
+    def show(self):
+        print(self.var)
+yo=A()
+yo.show()
+yoo=B()
+yoo.show()
+        
