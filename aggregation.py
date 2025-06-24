@@ -13,7 +13,7 @@ class Address:
         self.city=city
         self.pincode=pincode
         self.state=state
-    def change_add(self,new_city,new_pincode,new_state):
+    def change_address(self,new_city,new_pincode,new_state):
         self.city=new_city
         # self.new_pincode=new_pincode we shpuld not creeate new var keep it samejus change val "WRONG"
         self.pincode=new_pincode
