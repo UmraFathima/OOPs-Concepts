@@ -292,3 +292,18 @@ print(obj1.m1() + obj3.m1() + obj3.m2())
 #obj1.m1 will call class A m1 method
 # obj3.m1 will call b class m1 mthod coz class c is inheriting first B class so its mth is given priority
 # obj3.m2 will call C class m2 mthod coz class c has its own mthd so it doesnt go further so its mth is given priority
+
+class A:
+    def m1(self):
+        return 20
+class B(A):
+    def m1(self):
+        val=super().m1()+30
+        return val
+class C(B):
+    def m1(self):
+        val=self.m1()+20
+        return val
+obj=C()
+print(obj.m1())
+#here we get errorr max recusrrionn depth exceeded. as it callss it method m1 repeatedly thr recrsion
